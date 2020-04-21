@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --open --mode development",
     "build": "rimraf dist && webpack --mode production",
     "deploy": "yarn build && firebase deploy --only hosting",
-    "deploy-functions": "firebase deploy --only functions"
+    "deploy-functions": "cd functions && yarn deploy"
   },
   "dependencies": {
     "@ant-design/icons": "^4.0.6",

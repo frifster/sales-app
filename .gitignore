@@ -6,3 +6,4 @@ yarn.lock
 constants/
 firebase-debug.log
 functions/auth/config/token.json
+.firebase/
