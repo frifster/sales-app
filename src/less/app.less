@@ -1,6 +1,14 @@
 @primary: #ea8064;
 @secondary: #5ee06f;
 
+@border: 1px solid @primary;
+@border2: 10px solid @primary;
+@border3: 1px solid @primary;
+@border4: 3px solid @primary;
+@border5: 1px solid #fff;
+
+@default-pad: 2vh;
+
 .boxPrimary {
   background-color: @primary;
   border: none;
@@ -28,33 +36,38 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
-
-main {
+main.main-container {
   display: grid;
-  place-items: center;
+  grid-template-columns: 1fr auto 1fr;
   height: 100vh;
+  gap: 2vh;
+  padding: @default-pad;
 
-  .createInvoice {
-    min-height: 90vh;
-    width: 40vw;
-    background-color: #ffffff;
-    padding: 20px;
+  .menu {
+    padding: @default-pad;
+    background-color: #fff;
 
-    @border: 1px solid @primary;
-    @border2: 10px solid @primary;
-    @border3: 1px solid @primary;
-    @border4: 3px solid @primary;
-    @border5: 1px solid #fff;
-    
-    
     .ant-select.ant-select-single.ant-select-show-arrow {
       width: 350px;
       margin-bottom: 20px;
     }
 
+    .redo-icon {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .createInvoice {
+    display: grid;
+    justify-items: center;
+    align-items: flex-start;
+    padding: @default-pad;
+    min-width: 40vw;
+    background-color: #ffffff;
+
     .invoice {
       color: black;
-      margin-top: 20px;
       width:  600px;
       border: @border;
 

@@ -1,7 +1,7 @@
+import { hot } from 'react-hot-loader/root'
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-import { AppContainer } from 'react-hot-loader'
 
 /*
   css
@@ -12,14 +12,12 @@ class Home extends Component {
   render () {
     return (
       <BrowserRouter>
-        <AppContainer>
-          <App />
-        </AppContainer>
+        <App />
       </BrowserRouter>
     )
   }
 }
-export default Home
+export default hot(App)
 
 const wrapper = document.getElementById('invoiceMaker')
 if (wrapper) ReactDOM.render(<Home />, wrapper)

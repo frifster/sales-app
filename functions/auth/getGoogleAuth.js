@@ -3,6 +3,7 @@ const readline = require('readline')
 const { google } = require('googleapis')
 const path = require('path')
 
+const SHEETS_URL = 'https://sheets.googleapis.com'
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 const TOKEN_PATH = path.join(__dirname, './config/token.json')
 const CRED_PATH = path.join(__dirname, './config/credentials.json')
@@ -30,8 +31,8 @@ async function authorize (credentials) {
       client_secret: clientSecret,
       client_id: clientId,
       redirect_uris: redirectUris
-    } = credentials.installed
-    const oAuth2Client = new google.auth.OAuth2(clientId, clientSecret, redirectUris[0])
+    } = credentials.web
+    const oAuth2Client = new google.auth.OAuth2(clientId, clientSecret, 'https://sales-app-dd461.web.app/')
     // Check if we have previously stored a token.
     fs.readFile(TOKEN_PATH, (err, token) => {
       if (err) return resolve(getNewToken(oAuth2Client))

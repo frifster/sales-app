@@ -5,8 +5,8 @@ const getGoogleAuth = require('../auth/getGoogleAuth')
 const processInvoice = require('../helpers/processInvoice')
 
 router.get('/invoice', async (req, res, next) => {
-  const auth = await getGoogleAuth()
-  const data = await processInvoice(auth)
+  // const auth = await getGoogleAuth()
+  const data = await processInvoice()
   res.json(data)
 })
 
