@@ -1,0 +1,188 @@
+@primary: #ea8064;
+@secondary: #5ee06f;
+
+.boxPrimary {
+  background-color: @primary;
+  border: none;
+  color: #fff;
+  text-align: center;
+}
+
+body {
+  font-size: 12px;
+  background-color: @secondary;
+}
+
+.emphasize {
+  font-weight: bolder;
+  color: black;
+}
+
+.less-emphasis {
+  font-size: 10px;
+  color: @primary;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+main {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+
+  .createInvoice {
+    min-height: 90vh;
+    width: 40vw;
+    background-color: #ffffff;
+    padding: 20px;
+
+    @border: 1px solid @primary;
+    @border2: 10px solid @primary;
+    @border3: 1px solid @primary;
+    @border4: 3px solid @primary;
+    @border5: 1px solid #fff;
+    
+    
+    .ant-select.ant-select-single.ant-select-show-arrow {
+      width: 350px;
+      margin-bottom: 20px;
+    }
+
+    .invoice {
+      color: black;
+      margin-top: 20px;
+      width:  600px;
+      border: @border;
+
+      .invoice-header {
+        text-align: center;
+        height: 80px;
+        background-color: @primary;
+        display: grid;
+        grid-template-columns: 5fr 4fr;
+
+        .company-logo {
+          height: 80px;
+          text-align: center;
+          img {
+            height: 100%;
+            width: auto;
+          }
+        }
+
+        .company-info-field {
+          display: grid;
+          border-left: @border5;
+          padding: 15px;
+
+          .info-field {
+            .boxPrimary;
+            font-size: 10px;
+            text-align: left;
+            line-height: 15px;
+            letter-spacing: 0.05ch;
+
+            .anticon svg {
+              font-size: 10px;
+              text-align: left;
+              font-size: 10px;
+              color: black;
+            }
+          }
+        }
+      }
+      
+      .invoice-body {
+        .company-info-field,
+        .invoice-info,
+        .customer-info,
+        .orders-table {
+          padding: 10px;
+        }
+
+        .invoice-info {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          width: 270px;
+
+          div {
+            border: @border3;
+            border-left: none;
+            padding: 5px;
+            text-align: center;
+
+            &:first-child {
+              .boxPrimary;
+            }
+          }
+        }
+
+        .customer-info {
+          display: grid;
+          border-bottom: @border2;
+          padding-left: 11px;
+          min-height: 120px;
+
+          span {
+            padding-left: 5px;
+            border-left: @border4;
+          }
+        }
+
+        .orders-table {
+          margin-bottom: 50px;
+
+          .order-content,
+          .order-headers {
+            padding: 5px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+
+            div { text-align: center; }
+          }
+
+          .order-headers {
+            .boxPrimary;
+          }
+        }
+
+        .summary {
+          padding: 10px;
+          margin-bottom: 50px;
+          display: grid;
+          grid-template-columns: 3fr 2fr;
+
+          .summary-content {
+            display: grid;
+            grid-column-start: 2;
+
+            .grid-two {
+              div { 
+                text-align: left;
+                padding: 5px;
+              }
+
+              div:nth-child(2) {
+                text-align: center;
+              }
+
+              &.border-two {
+                div {
+                  border: @border3;
+                }
+
+                div:nth-child(1) {
+                  .boxPrimary;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
