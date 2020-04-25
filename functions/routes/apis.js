@@ -3,9 +3,18 @@ const router = express.Router()
 
 const processInvoice = require('../helpers/processInvoice')
 
-router.get('/invoice', async (req, res, next) => {
-  const data = await processInvoice()
-  res.json(data)
+router.post('/invoice', async (req, res, next) => {
+  const {
+    body: {
+      spreadsheetId
+    }
+  } = req
+  try {
+    const data = await processInvoice({ spreadsheetId })
+    res.json(data)
+  } catch (err) {
+    res.status(400).json({ success: false })
+  }
 })
 
 module.exports = router

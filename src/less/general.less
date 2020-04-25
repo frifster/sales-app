@@ -1,0 +1,51 @@
+@border: 1px solid @primary;
+@border2: 10px solid @primary;
+@border3: 3px solid @primary;
+@border4: 1px solid #fff;
+
+// Second Border 
+@border-two: 1px solid @secondary-dark;
+@border-two2: 10px solid @secondary-dark;
+@border-two3: 3px solid @secondary-dark;
+
+@default-pad: 2vh;
+@second-pad: 40px;
+
+.place-center {
+  display: grid;
+  place-items: center;
+}
+
+.place-top-center {
+  display: grid;
+  align-items: flex-start;
+  justify-items: center;
+}
+
+.boxPrimary {
+  background-color: @primary;
+  border: none;
+  color: #fff;
+  text-align: center;
+}
+
+.boxSecondary {
+  .boxPrimary;
+  background-color: @secondary-dark;
+}
+
+
+.emphasize {
+  font-weight: bolder;
+  color: black;
+}
+
+.less-emphasis {
+  font-size: 10px;
+  color: @primary;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

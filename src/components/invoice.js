@@ -1,8 +1,9 @@
 import React from 'react'
 import header from '../images/header.png'
 import { FacebookFilled, HomeFilled, PhoneFilled } from '@ant-design/icons'
+import { STORES } from '../constants/app'
 
-function Invoice ({ transaction, shippingFee }) {
+function Invoice ({ transaction, shippingFee, selectedStore }) {
   const {
     dateOrdered,
     contactPerson,
@@ -21,18 +22,22 @@ function Invoice ({ transaction, shippingFee }) {
 
   const vatSales = subtotal * 0.88
   const vat = subtotal - vatSales
-
   const totalAmount = shippingIsValid ? subtotal + shippingFee : subtotal
+  const store = STORES[selectedStore]
+  const headClass = selectedStore === 'NM' ? 'invoice' : 'invoice secondary'
+
   return (
-    <div className='invoice'>
+    <div className={headClass}>
       <div className='invoice-header'>
         <div className='company-logo'>
-          <img src={header} alt='Nourish Me Company Logo' />
+          {
+            selectedStore === 'NM' ? <img src={header} alt='Nourish Me Company Logo' /> : store.name
+          }
         </div>
         <div className='company-info-field'>
-          <span className='info-field'> <FacebookFilled /> fb.com/Nourishme.co</span>
-          <span className='info-field'> <HomeFilled /> 4A Industria St. Barangay Kapasigan, Pasig City</span>
-          <span className='info-field'> <PhoneFilled /> 09976099219</span>
+          <span className='info-field'> <FacebookFilled /> {store.facebookLink}</span>
+          <span className='info-field'> <HomeFilled /> {store.address}</span>
+          <span className='info-field'> <PhoneFilled /> {store.contact}</span>
         </div>
       </div>
       <div className='invoice-body'>

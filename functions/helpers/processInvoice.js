@@ -1,11 +1,11 @@
 const { google } = require('googleapis')
 
-function processInvoice (auth) {
+function processInvoice ({ spreadsheetId }) {
   return new Promise((resolve, reject) => {
     const request = {
       key: 'AIzaSyDUoIuULR56mkV8HZpilENPrfLoaQgTtX0',
       range: 'Order Sheet!A2:V',
-      spreadsheetId: '14DhGQP41H3AzfY7GhD5jxZytP8xkbnGygzap_KhVuII'
+      spreadsheetId
     }
     google.sheets('v4').spreadsheets.values.get(request, (err, res) => {
       if (err) reject(err.message)

@@ -1,0 +1,199 @@
+.createInvoice {
+  display: grid;
+  justify-items: center;
+  align-items: flex-start;
+  padding: @default-pad;
+  min-width: 40vw;
+  background-color: #ffffff;
+
+  .invoice {
+    color: black;
+    width:  600px;
+    border: @border;
+
+    .invoice-header {
+      text-align: center;
+      height: 80px;
+      background-color: @primary;
+      display: grid;
+      grid-template-columns: 5fr 4fr;
+
+      .company-logo {
+        height: 80px;
+        text-align: center;
+        color: #fff;
+        font-size: 40px;
+        line-height: 60px;
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+
+      .company-info-field {
+        display: grid;
+        border-left: @border4;
+        padding: 15px;
+
+        .info-field {
+          .boxPrimary;
+          font-size: 10px;
+          text-align: left;
+          line-height: 15px;
+          letter-spacing: 0.05ch;
+
+          .anticon svg {
+            font-size: 10px;
+            text-align: left;
+            font-size: 10px;
+            color: black;
+          }
+        }
+      }
+    }
+    
+    .invoice-body {
+      .company-info-field,
+      .invoice-info,
+      .customer-info,
+      .orders-table {
+        padding: 10px;
+      }
+
+      .invoice-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 270px;
+
+        div {
+          border: @border;
+          border-left: none;
+          padding: 5px;
+          text-align: center;
+
+          &:first-child {
+            .boxPrimary;
+          }
+        }
+      }
+
+      .customer-info {
+        display: grid;
+        border-bottom: @border2;
+        padding-left: 11px;
+        min-height: 120px;
+
+        span {
+          padding-left: 5px;
+          border-left: @border3;
+        }
+      }
+
+      .orders-table {
+        margin-bottom: 50px;
+
+        .order-content,
+        .order-headers {
+          padding: 5px;
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+
+          div { text-align: center; }
+        }
+
+        .order-headers {
+          .boxPrimary;
+        }
+      }
+
+      .summary {
+        padding: 10px;
+        margin-bottom: 50px;
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+
+        .summary-content {
+          display: grid;
+          grid-column-start: 2;
+
+          .grid-two {
+            div { 
+              text-align: left;
+              padding: 5px;
+            }
+
+            div:nth-child(2) {
+              text-align: center;
+            }
+
+            &.border-two {
+              div {
+                border: @border;
+              }
+
+              div:nth-child(1) {
+                .boxPrimary;
+              }
+            }
+
+            .less-emphasis {
+              color: @secondary-dark;
+            }
+          }
+        }
+      }
+    }
+
+    &.secondary {
+      border: @border-two;
+      .invoice-header {
+        background-color: @secondary-dark;
+        .company-info-field {
+          .info-field {
+            .boxSecondary;
+            text-align: left;
+          }
+        }
+      }
+      .invoice-body {
+        .invoice-info {
+          div {
+            border: @border-two;
+            &:first-child {
+              .boxSecondary;
+            }
+          }
+        }
+        .customer-info {
+          border-bottom: @border-two2;
+
+          span {
+            border-left: @border-two3;
+          }
+        }
+
+        .orders-table {
+          .order-headers {
+            .boxSecondary;
+          }
+        }
+
+        .summary {
+          .summary-content {
+            .grid-two {
+              &.border-two {
+                div {
+                  border: @border-two;
+                }
+  
+                div:nth-child(1) {
+                  .boxSecondary;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
